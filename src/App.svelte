@@ -239,6 +239,10 @@ $: collectedPowerUps = powerUps.filter(item => item.checked)
 		font-size: .5em;
 	}
 
+	h3 {
+		font-size: 1.6rem;
+	}
+
 	header {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);

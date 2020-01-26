@@ -74,7 +74,7 @@ $: collectedPowerUps = powerUps.filter(item => item.checked)
 <main>
 	<header id="header" class="category">
 
-	<h1>Super Metroid Item Checklist</h1>
+	<h1>Super Metroid Item Tracker <i><small>(“Smitty”)</small></i></h1>
 		<h2>Total: {percentage}%</h2>
 
 		<button bind:this={menubutton} on:click={toggleMenu} aria-pressed="false" role="button">Options</button>
@@ -224,7 +224,7 @@ $: collectedPowerUps = powerUps.filter(item => item.checked)
 
 <style>
 	main {
-		padding: 2em 2em 8em;
+		padding: 0 0 8em;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 		grid-gap: 1rem;
@@ -232,6 +232,11 @@ $: collectedPowerUps = powerUps.filter(item => item.checked)
 
 	h1 {
 		grid-column: span 2;
+		line-height: 1;
+	}
+
+	h1 small {
+		font-size: .5em;
 	}
 
 	header {
@@ -268,9 +273,9 @@ $: collectedPowerUps = powerUps.filter(item => item.checked)
 	}
 
 	.category {
-		border: 2px solid;
+		border: none;
 		border-radius: .5em;
-		padding: 1rem;
+		padding: 2rem;
 		background: rgba(1, 0, 27, .6);
 	}
 
@@ -289,7 +294,7 @@ $: collectedPowerUps = powerUps.filter(item => item.checked)
 	}
 
 	ol.category {
-		padding-left: 2rem;
+		padding-left: 3rem;
 		grid-column: 1 / -1;
 	}
 
@@ -300,7 +305,7 @@ $: collectedPowerUps = powerUps.filter(item => item.checked)
 		min-height: 100vh;
 		padding: 2rem;
 		width: 100vw;
-		max-width: 420px;
+		max-width: 36rem;
 		background: rgba(0,0,0,.9);
 		z-index: 10;
 		box-sizing: border-box;
@@ -330,6 +335,17 @@ $: collectedPowerUps = powerUps.filter(item => item.checked)
 
 	footer p:last-of-type {
 		margin-top: 1em;
+	}
+
+	@media (min-width: 36rem) {
+		main {
+			padding: 2em 2em 8em;
+		}
+
+		.category {
+			padding: 1em;
+			border: 2px solid;
+		}
 	}
 
 	@media (min-width: 70rem) {

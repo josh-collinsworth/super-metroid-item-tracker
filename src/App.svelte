@@ -303,10 +303,7 @@ $: collectedPowerUps = powerUps.filter(item => item.checked)
 		max-width: 420px;
 		background: rgba(0,0,0,.9);
 		z-index: 10;
-	}
-
-	.hidden {
-		display: none;
+		box-sizing: border-box;
 	}
 
 	#close-menu-btn {

@@ -70,6 +70,7 @@ $: collectedPowerUps = powerUps.filter(item => item.checked)
 
 </script>
 
+<!-- TODO: break this out into multiple components 😬 -->
 <main>
 	<header id="header" class="category">
 

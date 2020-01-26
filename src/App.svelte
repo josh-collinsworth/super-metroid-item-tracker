@@ -217,8 +217,9 @@ $: collectedPowerUps = powerUps.filter(item => item.checked)
 </main>
 
 <footer>
-	<p>This site ©2020 Josh Collinsworth. Built with <a href="https://svelte.dev/" target="_blank">Svelte</a> and hosted on <a href="https://netlify.com/" target="_blank">Netlify</a>.</p>
-	<p>Super Metroid ©1994 Nintendo.</p>
+	<p>This site ©2020 <a href="https://joshcollinsworth.com" target="_blank">Josh Collinsworth</a>. Built with <a href="https://svelte.dev/" target="_blank">Svelte</a> and hosted on <a href="https://netlify.com/" target="_blank">Netlify</a>.</p>
+	<p>Item locations and order taken from <a href="https://wiki.supermetroid.run/100%25" target="_blank">wiki.supermetroid.run</a></p>
+	<p>Super Metroid ©1994 Nintendo, which is not affiliated with this site.</p>
 </footer>
 
 <style>
@@ -320,8 +321,17 @@ $: collectedPowerUps = powerUps.filter(item => item.checked)
 	}
 
 	footer {
+		font-size: .8rem;
 		padding: 2em;
 		text-align: center;
+	}
+
+	footer p {
+		margin: 0;
+	}
+
+	footer p:last-of-type {
+		margin-top: 1em;
 	}
 
 	@media (min-width: 70rem) {

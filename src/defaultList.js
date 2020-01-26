@@ -10,13 +10,13 @@ module.exports = {
 			type: "Powerup",
 			subtype: "Missile",
 			checked: false,
-			location: "x2 To the right of Early Supers",
+			location: "First door on the right when first entering Brinstar",
 			order: 6
 		}, {
 			type: "Powerup",
 			subtype: "Missile",
 			checked: false,
-			location: "x2 To the right of Early Supers",
+			location: "Also first door on the right from first Brinstar visit",
 			order: 7
 		}, {
 			type: "Powerup",
@@ -28,7 +28,7 @@ module.exports = {
 			type: "Powerup",
 			subtype: "Missile",
 			checked: false,
-			location: "Hi-Jump Boots",
+			location: "In the room with the hi-jump boots",
 			order: 16
 		}, {
 			type: "Powerup",

@@ -466,7 +466,7 @@ module.exports = {
 			type: "Powerup",
 			subtype: "Power Bomb",
 			checked: false,
-			location: "of shame",
+			location: "Power Bomb of shame",
 			order: 82
 		}, {
 			type: "Powerup",

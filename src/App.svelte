@@ -299,8 +299,8 @@ $: collectedPowerUps = powerUps.filter(item => item.checked)
 		left: 0;
 		min-height: 100vh;
 		padding: 2rem;
-		width: 400px;
-		max-width: 100vw;
+		width: 100vw;
+		max-width: 420px;
 		background: rgba(0,0,0,.9);
 		z-index: 10;
 	}

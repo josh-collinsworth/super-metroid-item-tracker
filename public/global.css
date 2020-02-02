@@ -44,6 +44,7 @@ input, button, select, textarea {
 	border-radius: 2px;
 }
 
+
 input:disabled {
 	color: #ccc;
 }
@@ -53,8 +54,9 @@ input[type="range"] {
 }
 
 button {
-	color: #333;
-	background-color: #f4f4f4;
+	padding: 0.4em 0.8em;
+	color: #fff;
+	background: rgba(1, 0, 27, 1);
 	outline: none;
 }
 
@@ -110,4 +112,65 @@ input[type="radio"] + label:before {
 
 input[type="radio"]:checked + label:before {
 	content: '🔵';
+}
+
+
+li {
+	margin: 1em 0;
+	line-height: 1.4;
+}
+
+.category label {
+	font-weight: normal;
+}
+
+#etank-hud {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	max-width: 5rem;
+}
+
+ol.category {
+	padding-left: 3rem;
+	grid-column: 1 / -1;
+}
+
+h3 {
+	font-size: 1.6rem;
+	padding-bottom: 1rem;
+	margin-bottom: 2rem;
+}
+
+.category {
+	border: none;
+	border-radius: .5em;
+	padding: 2rem;
+	background: rgba(1, 0, 27, .6);
+}
+
+.location {
+	display: block;
+	font-size: .85em;
+	font-style: italic;
+	margin-left: 1.75rem;
+}
+
+@media (min-width: 36rem) {
+	.category {
+		padding: 1em;
+		border: 2px solid;
+	}
+}
+
+@media (min-width: 70rem) {
+	ol.category {
+		column-count: 2;
+		column-gap: 4rem;
+	}
+}
+
+@media (min-width: 110rem) {
+	ol.category {
+		column-count: 3;
+	}
 }

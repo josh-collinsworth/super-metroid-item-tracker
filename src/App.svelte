@@ -16,6 +16,12 @@ export let initializeList = () => {
 	if (!localStorage.getItem('superMetroidItemChecklist')) {
 		localStorage.setItem('superMetroidItemChecklist', JSON.stringify(defaultList))
 	}
+
+	const updated = JSON.parse(localStorage.getItem('superMetroidItemChecklist'))
+	if (!updated[0].area) {
+		alert(`Your saved data is still on an old version of this app. When you're ready, please reset the list from the options menu. Your data will be lost.`);
+	}
+
 	return JSON.parse(localStorage.getItem('superMetroidItemChecklist'))
 }
 

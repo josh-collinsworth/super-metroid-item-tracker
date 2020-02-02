@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-	background: url('https://wallpapercave.com/wp/SEc4VTC.jpg') black;
+	background: url('./samus-bg.jpg') black;
 	background-size: 800px;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -54,10 +54,11 @@ input[type="range"] {
 }
 
 button {
-	padding: 0.4em 0.8em;
+	padding: 0.5em 1em;
 	color: #fff;
-	background: rgba(1, 0, 27, 1);
-	outline: none;
+	background: #c62829;
+	border: none;
+	border-radius: 5px;
 }
 
 button:disabled {
@@ -114,7 +115,6 @@ input[type="radio"]:checked + label:before {
 	content: '🔵';
 }
 
-
 li {
 	margin: 1em 0;
 	line-height: 1.4;
@@ -152,13 +152,14 @@ h3 {
 	display: block;
 	font-size: .85em;
 	font-style: italic;
-	margin-left: 1.75rem;
+	margin-left: 1.8rem;
+	color: #6aa3ae;
 }
 
 @media (min-width: 36rem) {
 	.category {
 		padding: 1em;
-		border: 2px solid;
+		border: 2px solid #01264b;
 	}
 }
 

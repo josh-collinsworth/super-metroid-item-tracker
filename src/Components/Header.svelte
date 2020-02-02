@@ -18,6 +18,7 @@
 	h1 {
 		grid-column: span 2;
 		line-height: 1;
+		font-size: 2rem;
 	}
 
 	h1 small {

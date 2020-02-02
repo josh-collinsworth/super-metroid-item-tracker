@@ -100,19 +100,18 @@ $: data = {
 }
 </script>
 
-<!-- TODO: break this out into multiple components 😬 -->
 <main>
 
 	<Header {percentage} {toggleMenu} />
 
-	<Menu {isMenuOpen} {toggleMenu} bind:options {isMenuOpen} {resetList}/>
+	<Menu bind:options {isMenuOpen} {toggleMenu} {isMenuOpen} {resetList}/>
 
 	{#if options.sorting === "item"}
-		<ItemView {data} {options} />
+		<ItemView bind:data {options} />
 	{:else if options.sorting === "order"}
-		<SpeedRunView {data} {options} {itemName} />
+		<SpeedRunView bind:data {options} {itemName} />
 	{:else}
-		<LocationView {data} {options} {itemName} />
+		<LocationView bind:data {options} {itemName} />
 	{/if}
 
 </main>

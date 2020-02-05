@@ -14,7 +14,9 @@ import Menu from './Components/Menu.svelte'
 //Initializers
 export let initializeList = () => {
 	if (!localStorage.getItem('superMetroidItemChecklist')) {
-		localStorage.setItem('superMetroidItemChecklist', JSON.stringify(defaultList))
+		//Add a "checked" prop to each item, rather than hard-coding it 100 times.
+		const itemList = defaultList.map(item => { return {...item, checked: false }})
+		localStorage.setItem('superMetroidItemChecklist', JSON.stringify(itemList))
 	}
 
 	const updated = JSON.parse(localStorage.getItem('superMetroidItemChecklist'))

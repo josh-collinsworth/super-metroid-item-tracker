@@ -7,12 +7,35 @@ import Animation from '../animations'
 
 <!-- TODO: lots of repetition in this file -->
 
+<div in:fly="{ Animation.list.enter }" out:fly="{ Animation.list.leave }" id="missiles" class="category">
+	<h2>
+		<img class="icon" src="../../../icons/missile.png" alt="">
+		Missiles: {data.collectedMissiles.length}/{data.missiles.length}
+		</h2>
+	<ul>
+		{#each data.missiles as item, index}
+			<li class:collapsed="{options.hideChecked && item.checked}">
+				<input type="checkbox" id="missile-{index + 1}" bind:checked={item.checked}>
+				<label for="missile-{index + 1}">
+					{item.area}
+					<div class="location" class:collapsed="{options.hideLocations}">
+						{item.location}
+					</div>
+				</label>
+			</li>
+		{/each}
+	</ul>
+</div>
+
 <div in:fly="{ Animation.list.enter }" out:fly="{ Animation.list.leave }" id="eTanks" class="category">
-	<h3>Energy Tanks: {data.collectedETanks.length}/{data.eTanks.length}</h3>
+	<h2>
+		<img class="icon" src="../../../icons/energy-tank.png" alt="" />
+		Energy Tanks: {data.collectedETanks.length}/{data.eTanks.length}
+	</h2>
 	<ul>
 		{#each data.eTanks as item, index}
-			{#if !options.hideChecked || !item.checked }
-			<li transition:fly="{Animation.listItem.enterLeave}">
+
+			<li class:collapsed="{options.hideChecked && item.checked}">
 				<input type="checkbox" id="etank-{index + 1}" bind:checked={item.checked}>
 				<label for="etank-{index + 1}">
 					{item.area}
@@ -23,105 +46,94 @@ import Animation from '../animations'
 					{/if}
 				</label>
 			</li>
-			{/if}
-		{/each}
-	</ul>
-</div>
-
-<div in:fly="{ Animation.list.enter }" out:fly="{ Animation.list.leave }" id="missiles" class="category">
-	<h3>Missiles: {data.collectedMissiles.length}/{data.missiles.length}</h3>
-	<ul>
-		{#each data.missiles as item, index}
-		{#if !options.hideChecked || !item.checked }
-			<li transition:fly="{Animation.listItem.enterLeave}">
-				<input type="checkbox" id="missile-{index + 1}" bind:checked={item.checked}>
-				<label for="missile-{index + 1}">
-					{item.area}
-					{#if !options.hideLocations}
-						<div class="location" transition:fly="{Animation.listItem.enterLeave}">
-							{item.location}
-						</div>
-					{/if}
-				</label>
-			</li>
-			{/if}
-		{/each}
-	</ul>
-</div>
-
-<div in:fly="{ Animation.list.enter }" out:fly="{ Animation.list.leave }" id="reserveTanks" class="category">
-	<h3>Reserve Tanks: {data.collectedReserveTanks.length}/{data.reserveTanks.length}</h3>
-	<ul>
-		{#each data.reserveTanks as item, index}
-		{#if !options.hideChecked || !item.checked }
-			<li transition:fly="{Animation.listItem.enterLeave}">
-				<input type="checkbox" id="reserve_tank-{index + 1}" bind:checked={item.checked}>
-				<label for="reserve_tank-{index + 1}">
-					{item.area}
-					{#if !options.hideLocations}
-						<div class="location" transition:fly="{Animation.listItem.enterLeave}">
-							{item.location}
-						</div>
-					{/if}
-				</label>
-			</li>
-			{/if}
 		{/each}
 	</ul>
 </div>
 
 <div in:fly="{ Animation.list.enter }" out:fly="{ Animation.list.leave }" id="superMissiles" class="category">
-	<h3>Super Missiles: {data.collectedSuperMissiles.length}/{data.superMissiles.length}</h3>
+	<h2>
+		<img class="icon" src="../../../icons/super-missile.png" alt="" />
+		Super Missiles: {data.collectedSuperMissiles.length}/{data.superMissiles.length}
+	</h2>
 	<ul>
 		{#each data.superMissiles as item, index}
-		{#if !options.hideChecked || !item.checked }
-			<li transition:fly="{Animation.listItem.enterLeave}">
+			<li class:collapsed="{options.hideChecked && item.checked}">
 				<input type="checkbox" id="super_missile-{index + 1}" bind:checked={item.checked}>
 				<label for="super_missile-{index + 1}">
 					{item.area}
-					{#if !options.hideLocations}
-						<div class="location" transition:fly="{Animation.listItem.enterLeave}">
-							{item.location}
-						</div>
-					{/if}
+					<div class="location" class:collapsed="{options.hideLocations}">
+						{item.location}
+					</div>
 				</label>
 			</li>
-			{/if}
 		{/each}
 	</ul>
 </div>
 
 <div in:fly="{ Animation.list.enter }" out:fly="{ Animation.list.leave }" id="powerBombs" class="category">
-	<h3>Power Bombs: {data.collectedPowerBombs.length}/{data.powerBombs.length}</h3>
+	<h2>
+		<img class="icon" src="../../../icons/power-bomb.png" alt="" />
+		Power Bombs: {data.collectedPowerBombs.length}/{data.powerBombs.length}
+	</h2>
 	<ul>
 		{#each data.powerBombs as item, index}
-		{#if !options.hideChecked || !item.checked }
-			<li transition:fly="{Animation.listItem.enterLeave}">
+			<li class:collapsed="{options.hideChecked && item.checked}">
 				<input type="checkbox" id="power_bomb-{index + 1}" bind:checked={item.checked}>
 				<label for="power_bomb-{index + 1}">
 					{item.area}
-					{#if !options.hideLocations}
-						<div class="location" transition:fly="{Animation.listItem.enterLeave}">
-							{item.location}
-						</div>
-					{/if}
+					<div class="location" class:collapsed="{options.hideLocations}">
+						{item.location}
+					</div>
 				</label>
 			</li>
-			{/if}
 		{/each}
 	</ul>
 </div>
 
 <div in:fly="{ Animation.list.enter }" out:fly="{ Animation.list.leave }" id="powerUps" class="category">
-	<h3>Power-Ups: {data.collectedPowerUps.length}/{data.powerUps.length}</h3>
+	<h2>
+		<img class="icon" src="../../../icons/ice-beam.png" alt="" />
+		Power-Ups: {data.collectedPowerUps.length}/{data.powerUps.length}
+	</h2>
 	<ul>
 		{#each data.powerUps as item, index}
-		{#if !options.hideChecked || !item.checked }
-			<li transition:fly="{Animation.listItem.enterLeave}">
+			<li class:collapsed="{options.hideChecked && item.checked}">
 				<input type="checkbox" id="upgrade-{index + 1}" bind:checked={item.checked}>
 				<label for="upgrade-{index + 1}">{item.type || ''}</label>
 			</li>
-			{/if}
 		{/each}
 	</ul>
 </div>
+
+<div in:fly="{ Animation.list.enter }" out:fly="{ Animation.list.leave }" id="reserveTanks" class="category">
+	<h2>
+		<img class="icon" src="../../../icons/reserve-tank.png" alt="" />
+		Reserve Tanks: {data.collectedReserveTanks.length}/{data.reserveTanks.length}
+	</h2>
+	<ul>
+		{#each data.reserveTanks as item, index}
+			<li class:collapsed="{options.hideChecked && item.checked}">
+				<input type="checkbox" id="reserve_tank-{index + 1}" bind:checked={item.checked}>
+				<label for="reserve_tank-{index + 1}">
+					{item.area}
+					<div class="location" class:collapsed="{options.hideLocations}">
+						{item.location}
+					</div>
+				</label>
+			</li>
+		{/each}
+	</ul>
+</div>
+
+
+<style>
+	#missiles {
+		grid-row: span 3;
+	}
+
+	.icon {
+		width: 1em;
+		margin-right: .5em;
+		float: left;
+	}
+</style>

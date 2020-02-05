@@ -7,44 +7,35 @@
 
 <header id="header" class="category">
 
-	<h1>Super Metroid Item Tracker <i><small>(“Smitty”)</small></i></h1>
-	<h2>Total: {percentage}%</h2>
+	<div class="header-info">
+		<h1 class="visually-hidden">Super Metroid Item Tracker</h1>
+		<img src="../super-metroid-logo.png" alt="">
+		<p aria-hidden="true">Item tracker</p>
+		<h2>Total: {percentage}%</h2>
+	</div>
+	<!-- <h1>Super Metroid Item Tracker <i><small>(“Smitty”)</small></i></h1> -->
 
 	<button bind:this={menubutton} on:click={toggleMenu} aria-pressed="false" role="button">Options</button>
 </header>
 
 
 <style>
-	h1 {
-		grid-column: span 2;
-		line-height: 1;
-		font-size: 2rem;
+	.header-info {
+		text-align: center;
 	}
-
-	h1 small {
-		font-size: .5em;
+	.header-info  p {
+		margin: 0;
+		text-align: center;
 	}
 
 	header {
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		justify-items: start;
+		display: flex;
+		justify-content: space-between;
 		align-items: center;
 		grid-column: 1 / -1;
 	}
 
-	header h1,
 	header h2 {
-		grid-column: 1 / 4;
-	}
-
-	header button {
-		grid-row: 1 / 3;
-		display: block;
-		justify-self: end;
-	}
-
-	header button {
-		grid-column: 5 / 6;
+		top: unset;
 	}
 </style>

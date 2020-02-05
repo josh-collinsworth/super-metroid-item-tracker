@@ -46,6 +46,10 @@ const itemName = (item) => {
 	return item.type === "Powerup" ? item.subtype : item.type
 }
 
+const sluggify = (str) => {
+	return str.toLowerCase().replace(' ', '-')
+}
+
 const resetList = () => {
 	const confirmation = confirm(`Are you sure you want to completely reset the list and all items to zero?`);
 	if (confirmation) items = [...defaultList];
@@ -115,9 +119,9 @@ $: data = {
 	{#if options.sorting === "item"}
 		<ItemView bind:data {options} />
 	{:else if options.sorting === "order"}
-		<SpeedRunView bind:data {options} {itemName} />
+		<SpeedRunView bind:data {options} {itemName} {sluggify}/>
 	{:else}
-		<LocationView bind:data {options} {itemName} />
+		<LocationView bind:data {options} {itemName} {sluggify}/>
 	{/if}
 
 </main>
@@ -134,6 +138,8 @@ $: data = {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 		grid-gap: 1rem;
+		grid-auto-flow: dense;
+		align-items: start;
 	}
 
 	footer {

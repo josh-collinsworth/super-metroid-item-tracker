@@ -6,6 +6,7 @@ html, body {
 
 body {
 	background: url('./samus-bg.jpg') black;
+	background: black;
 	background-size: 800px;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -33,6 +34,12 @@ a:visited {
 ul {
 	list-style-type: none;
 	padding: 0;
+	margin-top: 0;
+}
+
+li {
+	margin: 0 0 1em;
+	line-height: 1.4;
 }
 
 input, button, select, textarea {
@@ -44,13 +51,42 @@ input, button, select, textarea {
 	border-radius: 2px;
 }
 
-
 input:disabled {
 	color: #ccc;
 }
 
 input[type="range"] {
 	height: 0;
+}
+
+li, .location {
+	min-height: 1rem;
+	max-height: 6rem;
+	transition: all .4s ease-in-out;
+	overflow: hidden;
+}
+
+.location {
+	max-height: 4rem;
+}
+
+.collapsed {
+	max-height: 0;
+	min-height: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	pointer-events: none;
+	opacity: 0;
+}
+
+.visually-hidden {
+	position: absolute;
+	left: -100vw;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	opacity: 0;
+	pointer-events: none;
 }
 
 button {
@@ -115,26 +151,6 @@ input[type="radio"]:checked + label:before {
 	content: '🔵';
 }
 
-li {
-	margin: 1em 0;
-	line-height: 1.4;
-}
-
-.category label {
-	font-weight: normal;
-}
-
-#etank-hud {
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	max-width: 5rem;
-}
-
-ol.category {
-	padding-left: 3rem;
-	grid-column: 1 / -1;
-}
-
 h3 {
 	font-size: 1.6rem;
 	padding-bottom: 1rem;
@@ -145,7 +161,36 @@ h3 {
 	border: none;
 	border-radius: .5em;
 	padding: 2rem;
-	background: rgba(1, 0, 27, .6);
+	background: black;
+	margin-top: 2rem;
+	position: relative;
+}
+
+ol.category {
+	padding-left: 3rem;
+	grid-column: 1 / -1;
+}
+
+.category h2 {
+	font-size: 1.4rem;
+	background: black;
+	position: relative;
+	line-height: 1;
+	top: calc(-.7rem + -.5em + -1rem);
+	box-sizing: border-box;
+	text-align: center;
+	display: inline-block;
+	padding: .4em 0;
+	margin: 0 auto;
+	text-transform: uppercase;
+}
+
+.category ul {
+	margin-top: -1rem;
+}
+
+.category label {
+	font-weight: normal;
 }
 
 .location {
@@ -159,7 +204,11 @@ h3 {
 @media (min-width: 36rem) {
 	.category {
 		padding: 1em;
-		border: 2px solid #01264b;
+		border: 4px solid #6aa3ae;
+	}
+
+	.category h2 {
+		padding: .4em .8rem;
 	}
 }
 

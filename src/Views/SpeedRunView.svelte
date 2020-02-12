@@ -41,12 +41,13 @@ import Animation from '../animations'
 		width: 1.6em;
 		margin-right: .5em;
 		opacity: .5;
+		filter: saturate(1);
 		display: inline-block;
 	}
 
 	input:checked + label .icon {
 		opacity: 1;
-                filter: saturate (0);
+		filter: saturate(1);
 	}
 
 	.location {

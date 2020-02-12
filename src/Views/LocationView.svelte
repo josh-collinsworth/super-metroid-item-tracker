@@ -38,11 +38,13 @@ import Animation from '../animations'
 		transition: opacity .2s;
 		width: 1.8em;
 		opacity: .6;
+		filter: saturate(0);
 		display: inline-block;
 	}
 
 	input:checked + label .icon {
 		opacity: 1;
+		filter: saturate(1);
 	}
 
 	.location {

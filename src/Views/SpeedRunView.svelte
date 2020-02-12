@@ -46,6 +46,7 @@ import Animation from '../animations'
 
 	input:checked + label .icon {
 		opacity: 1;
+                filter: saturate (0);
 	}
 
 	.location {

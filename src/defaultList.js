@@ -251,7 +251,7 @@ module.exports = {
 			subtype: "Missile",
 			area: "Old Brinstar",
 			location: "Ceiling right past \"Construction Zone\" with Speed Booster",
-			order: 94
+			order: 93
 		}, {
 			type: "Powerup",
 			subtype: "Missile",

@@ -20,7 +20,8 @@ export let initializeList = () => {
 	}
 
 	const updated = JSON.parse(localStorage.getItem('superMetroidItemChecklist'))
-	if (!updated[0].area) {
+	const areAllUnique = new Set(updated.map(item => item.order))
+	if (!updated[0].area || [...areAllUnique].length !== updated.length) {
 		alert(`Your saved data is still on an old version of this app. When you're ready, please reset the list from the options menu. Your data will be lost.`);
 	}
 

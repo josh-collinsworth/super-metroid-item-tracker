@@ -166,7 +166,7 @@ module.exports = {
 			type: "Powerup",
 			subtype: "Missile",
 			area: "Maridia",
-			location: "Also hidden in sand pit below a Choot",
+			location: "Hidden in a sand pit below a Choot, along with another item",
 			order: 63
 		}, {
 			type: "Powerup",
@@ -184,14 +184,14 @@ module.exports = {
 			type: "Powerup",
 			subtype: "Missile",
 			area: "Maridia",
-			location: "\"Aqueduct\", Speed Booster blocks in large room shortly before Botwoon",
+			location: "\"Aqueduct\", Speed Booster blocks in large room shortly after Botwoon",
 			order: 71
 		}, {
 			type: "Powerup",
 			subtype: "Missile",
 			area: "Maridia",
-			location: "West Sand Hole, also drop down through the left sand pit",
-			order: 73
+			location: "second of two items in a hole beneath a Choot in Northwest Maridia",
+			order: 74
 		}, {
 			type: "Powerup",
 			subtype: "Missile",

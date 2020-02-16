@@ -18,6 +18,11 @@ body {
 	font-size: 1.125rem;
 }
 
+*:focus, input[type="checkbox"]:focus + label, input[type="radio"]:focus + label {
+	outline: 1px solid rgb(0,100,200);
+	outline-offset: 3px;
+}
+
 a {
 	color: rgb(0,100,200);
 	text-decoration: none;
@@ -38,8 +43,9 @@ ul {
 }
 
 li {
-	margin: 0 0 1em;
+	margin: 0 0 1.25rem;
 	line-height: 1.4;
+	overflow: visible;
 }
 
 input, button, select, textarea {
@@ -59,15 +65,21 @@ input[type="range"] {
 	height: 0;
 }
 
+.location {
+	display: block;
+	font-size: .85em;
+	font-style: italic;
+	margin: .25rem 0 0 1.8rem;
+	color: #6aa3ae;
+	max-height: 4rem;
+	width: 100%;
+}
+
 li, .location {
 	min-height: 1rem;
 	max-height: 6rem;
 	transition: all .4s ease-in-out;
 	overflow: hidden;
-}
-
-.location {
-	max-height: 4rem;
 }
 
 .collapsed {
@@ -185,20 +197,34 @@ ol.category {
 	text-transform: uppercase;
 }
 
+.category h2 .icon {
+	width: 1.5em!important;
+	vertical-align: middle;
+}
+
 .category ul {
 	margin-top: -1rem;
 }
 
 .category label {
 	font-weight: normal;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
-.location {
-	display: block;
-	font-size: .85em;
-	font-style: italic;
-	margin-left: 1.8rem;
-	color: #6aa3ae;
+.icon {
+	transition: opacity .2s;
+	width: 1.6em;
+	margin-right: .5em;
+	opacity: .5;
+	filter: saturate(1);
+	display: inline-block;
+}
+
+input:checked + label .icon {
+	opacity: 1;
+	filter: saturate(1);
 }
 
 @media (min-width: 36rem) {

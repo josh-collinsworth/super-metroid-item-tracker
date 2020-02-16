@@ -22,7 +22,7 @@ export let initializeList = () => {
 	const updated = JSON.parse(localStorage.getItem('superMetroidItemChecklist'))
 	const areAllUnique = new Set(updated.map(item => item.order))
 	if (!updated[0].area || [...areAllUnique].length !== updated.length) {
-		alert(`Your saved data is still on an old version of this app. When you're ready, please reset the list from the options menu. Your data will be lost.`);
+		alert(`Your saved data is still on an old version of this app. When you're ready, please reset the list from the options menu. Your data will be lost.`)
 	}
 
 	return JSON.parse(localStorage.getItem('superMetroidItemChecklist'))
@@ -30,44 +30,41 @@ export let initializeList = () => {
 
 export let initializeOptions = () => {
 	if (!localStorage.getItem('superMetroidItemChecklistOptions')) {
-		localStorage.setItem('superMetroidItemChecklistOptions', JSON.stringify({ sorting: 'item', hideChecked: false, hideLocations: false }))
+		localStorage.setItem('superMetroidItemChecklistOptions', JSON.stringify({
+			sorting: 'item',
+			hideChecked: false,
+			hideLocations: false
+		}))
 	}
 	return JSON.parse(localStorage.getItem('superMetroidItemChecklistOptions'))
 }
 
-export let items = initializeList();
-export let options = initializeOptions();
-export let isMenuOpen = false;
+let items = initializeList()
+let options = initializeOptions()
+let isMenuOpen = false
 
 
-afterUpdate(() => {
+afterUpdate((a, b) => {
 	localStorage.setItem('superMetroidItemChecklist', JSON.stringify(items))
 	localStorage.setItem('superMetroidItemChecklistOptions', JSON.stringify(options))
-});
-
-const itemName = (item) => {
-	return item.type === "Powerup" ? item.subtype : item.type
-}
+})
 
 const sluggify = (str) => {
+	if (!str) return ''
 	return str.toLowerCase().replace(' ', '-')
 }
 
 const resetList = () => {
-	const confirmation = confirm(`Are you sure you want to completely reset the list and all items to zero?`);
-	if (confirmation) items = [...defaultList];
+	const confirmation = confirm(`Are you sure you want to completely reset the list and all items to zero?`)
+	if (confirmation) items = [...defaultList]
 }
 
 const viewByItem = () => {
-	return options.sorting === "item" ? null : 'hidden';
+	return options.sorting === "item" ? null : 'hidden'
 }
 
 const toggleMenu = () => {
-	isMenuOpen = !isMenuOpen;
-	setTimeout(() => {
-		const menu = document.querySelector('#menu')
-		menu.setAttribute('aria-pressed', !isMenuOpen)
-	}, 20)
+	isMenuOpen = !isMenuOpen
 }
 
 $: orderedItems = items.sort((a, b) => a.order - b.order)
@@ -77,12 +74,12 @@ $: locations = [...new Set(items.map(item => item.area))]
 
 $: percentage = items.filter(item => item.checked).length
 
-$: missiles = items.filter(item => item.subtype === "Missile")
-$: eTanks = items.filter(item => item.subtype === "Energy Tank")
-$: reserveTanks = items.filter(item => item.subtype === "Reserve Tank")
-$: superMissiles = items.filter(item => item.subtype === "Super Missile")
-$: powerBombs = items.filter(item => item.subtype === "Power Bomb")
-$: powerUps = items.filter(item => item.subtype === "Upgrade")
+$: missiles = items.filter(item => item.name === "Missile")
+$: eTanks = items.filter(item => item.name === "Energy Tank")
+$: reserveTanks = items.filter(item => item.name === "Reserve Tank")
+$: superMissiles = items.filter(item => item.name === "Super Missile")
+$: powerBombs = items.filter(item => item.name === "Power Bomb")
+$: powerUps = items.filter(item => item.unique)
 
 $: collectedMissiles = missiles.filter(item => item.checked)
 $: collectedETanks = eTanks.filter(item => item.checked)
@@ -91,6 +88,9 @@ $: collectedReserveTanks = reserveTanks.filter(item => item.checked)
 $: collectedSuperMissiles = superMissiles.filter(item => item.checked)
 $: collectedPowerBombs = powerBombs.filter(item => item.checked)
 $: collectedPowerUps = powerUps.filter(item => item.checked)
+
+$: thing = options;
+$: console.log(options)
 
 $: data = {
 	orderedItems,
@@ -109,22 +109,22 @@ $: data = {
 	collectedPowerBombs,
 	collectedPowerUps,
 	itemsByLocation,
-	locations
+	locations,
 }
 </script>
 
 <main>
 
-	<Header {percentage} {toggleMenu} />
+	<Header {percentage} {toggleMenu} {isMenuOpen} />
 
-	<Menu bind:options {isMenuOpen} {toggleMenu} {isMenuOpen} {resetList}/>
+	<Menu bind:options bind:isMenuOpen {toggleMenu} {isMenuOpen} {resetList}/>
 
 	{#if options.sorting === "item"}
-		<ItemView bind:data {options} />
+		<ItemView bind:data {options} {sluggify} />
 	{:else if options.sorting === "order"}
-		<SpeedRunView bind:data {options} {itemName} {sluggify}/>
+		<SpeedRunView bind:data {options} {sluggify}/>
 	{:else}
-		<LocationView bind:data {options} {itemName} {sluggify}/>
+		<LocationView bind:data {options} {sluggify}/>
 	{/if}
 
 </main>

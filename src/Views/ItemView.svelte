@@ -1,8 +1,9 @@
 <script>
-export let data
-export let options
 import { fly, fade } from 'svelte/transition'
 import Animation from '../animations'
+import Item from '../Components/Item.svelte'
+
+export let data, options, sluggify
 </script>
 
 <!-- TODO: lots of repetition in this file -->
@@ -14,15 +15,7 @@ import Animation from '../animations'
 		</h2>
 	<ul>
 		{#each data.missiles as item, index}
-			<li class:collapsed="{options.hideChecked && item.checked}">
-				<input type="checkbox" id="missile-{index + 1}" bind:checked={item.checked}>
-				<label for="missile-{index + 1}">
-					{item.area}
-					<div class="location" class:collapsed="{options.hideLocations}">
-						{item.location}
-					</div>
-				</label>
-			</li>
+			<Item bind:item {options} {sluggify} />
 		{/each}
 	</ul>
 </div>
@@ -99,7 +92,10 @@ import Animation from '../animations'
 		{#each data.powerUps as item, index}
 			<li class:collapsed="{options.hideChecked && item.checked}">
 				<input type="checkbox" id="upgrade-{index + 1}" bind:checked={item.checked}>
-				<label for="upgrade-{index + 1}">{item.type || ''}</label>
+				<label for="upgrade-{index + 1}">
+					<img class="icon" src={`../../icons/${sluggify(item.name)}.png`} alt="" />
+					{item.name}
+				</label>
 			</li>
 		{/each}
 	</ul>
@@ -131,9 +127,33 @@ import Animation from '../animations'
 		grid-row: span 3;
 	}
 
+	label {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
 	.icon {
-		width: 1em;
+		transition: opacity .2s;
+		width: 1.6em;
 		margin-right: .5em;
-		float: left;
+		opacity: .5;
+		filter: saturate(1);
+		display: inline-block;
+	}
+
+	label .icon {
+		float: none;
+		width: 1.6em;
+		opacity: .5;
+	}
+
+	input:checked + label .icon {
+		opacity: 1;
+		filter: saturate(1);
+	}
+
+	.location {
+		width: 100%;
 	}
 </style>

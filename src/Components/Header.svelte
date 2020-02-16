@@ -1,7 +1,11 @@
 <script>
-	export let percentage
-	export let toggleMenu
-	export let menubutton
+	export let percentage, toggleMenu, isMenuOpen
+
+	let menubutton
+
+	const handleMenuButttonClick = () => {
+		toggleMenu();
+	}
 </script>
 
 
@@ -13,9 +17,8 @@
 		<p aria-hidden="true">Item tracker</p>
 		<h2>Total: {percentage}%</h2>
 	</div>
-	<!-- <h1>Super Metroid Item Tracker <i><small>(“Smitty”)</small></i></h1> -->
 
-	<button bind:this={menubutton} on:click={toggleMenu} aria-pressed="false" role="button">Options</button>
+	<button bind:this={menubutton} on:click={toggleMenu} aria-pressed={isMenuOpen} role="button">Options</button>
 </header>
 
 

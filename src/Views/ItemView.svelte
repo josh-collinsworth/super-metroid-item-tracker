@@ -15,7 +15,17 @@ export let data, options, sluggify
 		</h2>
 	<ul>
 		{#each data.missiles as item, index}
-			<Item bind:item {options} {sluggify} />
+			<li class:collapsed="{options.hideChecked && item.checked}">
+				<input type="checkbox" id="missile-{index + 1}" bind:checked={item.checked}>
+				<label for="missile-{index + 1}">
+					{item.area}
+					{#if !options.hideLocations}
+						<div class="location" transition:fly="{ Animation.listItem.enterLeave }">
+							{item.location}
+						</div>
+					{/if}
+				</label>
+			</li>
 		{/each}
 	</ul>
 </div>

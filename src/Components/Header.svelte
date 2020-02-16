@@ -1,5 +1,5 @@
 <script>
-	export let percentage, toggleMenu, isMenuOpen
+	export let percentage, toggleMenu, isMenuOpen, isScrolling
 
 	let menubutton
 
@@ -10,7 +10,6 @@
 
 
 <header id="header" class="category">
-
 	<div class="header-info">
 		<h1 class="visually-hidden">Super Metroid Item Tracker</h1>
 		<img src="../super-metroid-logo.png" alt="">
@@ -18,7 +17,7 @@
 		<h2>Total: {percentage}%</h2>
 	</div>
 
-	<button bind:this={menubutton} on:click={toggleMenu} aria-pressed={isMenuOpen} role="button">Options</button>
+	<button bind:this={menubutton} class:sticky="{isScrolling}" on:click={toggleMenu} aria-pressed={isMenuOpen} role="button">Options</button>
 </header>
 
 
@@ -40,5 +39,25 @@
 
 	header h2 {
 		top: unset;
+	}
+
+	button {
+		transition: all .2s ease-in-out;
+	}
+	.sticky {
+		position: fixed;
+		animation: slideMenuButtonDown .3s ease-out forwards;
+		right: 1em;
+		z-index: 10;
+	}
+
+	@keyframes slideMenuButtonDown {
+		0% {
+			top: -5em;
+		}
+
+		100% {
+			top: 1em;
+		}
 	}
 </style>

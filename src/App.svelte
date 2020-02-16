@@ -12,7 +12,7 @@ import Header from './Components/Header.svelte'
 import Menu from './Components/Menu.svelte'
 
 //Initializers
-export let initializeList = () => {
+let initializeList = () => {
 	if (!localStorage.getItem('superMetroidItemChecklist')) {
 		//Add a "checked" prop to each item, rather than hard-coding it 100 times.
 		const itemList = defaultList.map(item => { return {...item, checked: false }})
@@ -28,7 +28,7 @@ export let initializeList = () => {
 	return JSON.parse(localStorage.getItem('superMetroidItemChecklist'))
 }
 
-export let initializeOptions = () => {
+let initializeOptions = () => {
 	if (!localStorage.getItem('superMetroidItemChecklistOptions')) {
 		localStorage.setItem('superMetroidItemChecklistOptions', JSON.stringify({
 			sorting: 'item',
@@ -42,6 +42,8 @@ export let initializeOptions = () => {
 let items = initializeList()
 let options = initializeOptions()
 let isMenuOpen = false
+let y = 0
+let isScrolling
 
 
 afterUpdate((a, b) => {
@@ -67,6 +69,10 @@ const toggleMenu = () => {
 	isMenuOpen = !isMenuOpen
 }
 
+const adjustMenuButtonPlacement = (scroll) => {
+	isScrolling = scroll > 400 ? true : false
+}
+
 $: orderedItems = items.sort((a, b) => a.order - b.order)
 
 $: itemsByLocation = orderedItems.sort((a, b) => a.area - b.area)
@@ -90,7 +96,6 @@ $: collectedPowerBombs = powerBombs.filter(item => item.checked)
 $: collectedPowerUps = powerUps.filter(item => item.checked)
 
 $: thing = options;
-$: console.log(options)
 
 $: data = {
 	orderedItems,
@@ -113,9 +118,12 @@ $: data = {
 }
 </script>
 
+<svelte:window bind:scrollY={y} on:scroll={() => {adjustMenuButtonPlacement(y)}}/>
+
+
 <main>
 
-	<Header {percentage} {toggleMenu} {isMenuOpen} />
+	<Header {percentage} {toggleMenu} {isMenuOpen} {isScrolling}/>
 
 	<Menu bind:options bind:isMenuOpen {toggleMenu} {isMenuOpen} {resetList}/>
 

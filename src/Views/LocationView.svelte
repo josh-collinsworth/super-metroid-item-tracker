@@ -2,8 +2,9 @@
 import { fly, fade } from 'svelte/transition'
 import Animation from '../animations'
 import Item from '../Components/Item.svelte'
+import { sluggify } from '../helpers.js'
 
-export let data, options, sluggify
+export let data, options
 </script>
 
 {#each data.locations as location, index}
@@ -11,7 +12,7 @@ export let data, options, sluggify
 		<h2>{location} {data.itemsByLocation.filter(item => (item.area === location && item.checked)).length}/{data.itemsByLocation.filter(item => item.area === location).length}</h2>
 			<ul>
 			{#each data.itemsByLocation.filter(item => item.area === location) as item}
-				<Item bind:item {options} {sluggify} />
+				<Item bind:item {options} {index}/>
 			{/each}
 		</ul>
 	</div>

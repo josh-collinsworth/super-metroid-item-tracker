@@ -58,7 +58,6 @@
 		min-height: 100vh;
 		padding: 2rem;
 		width: 100vw;
-		max-width: 36rem;
 		background: rgba(0,0,0,.9);
 		z-index: 10;
 		box-sizing: border-box;
@@ -80,6 +79,10 @@
 		top: 1rem;
 		background: transparent;
 		border: none;
+	}
+
+	#menu form {
+		max-width: 24rem;
 	}
 
 	#menu form > div {

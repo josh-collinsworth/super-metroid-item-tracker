@@ -1,5 +1,6 @@
 <script>
-	export let item, sluggify, options, index
+	import { sluggify } from '../helpers.js'
+	export let item, options, index
 </script>
 
 

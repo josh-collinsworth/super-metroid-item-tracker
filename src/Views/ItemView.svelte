@@ -2,8 +2,10 @@
 import { fly, fade } from 'svelte/transition'
 import Animation from '../animations'
 import Item from '../Components/Item.svelte'
+import { sluggify } from '../helpers.js'
 
-export let data, options, sluggify
+
+export let data, options
 </script>
 
 <!-- TODO: lots of repetition in this file -->

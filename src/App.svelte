@@ -51,11 +51,6 @@ afterUpdate((a, b) => {
 	localStorage.setItem('superMetroidItemChecklistOptions', JSON.stringify(options))
 })
 
-const sluggify = (str) => {
-	if (!str) return ''
-	return str.toLowerCase().replace(' ', '-')
-}
-
 const resetList = () => {
 	const confirmation = confirm(`Are you sure you want to completely reset the list and all items to zero?`)
 	if (confirmation) items = [...defaultList]
@@ -127,11 +122,11 @@ $: data = {
 	<Menu bind:options bind:isMenuOpen {toggleMenu} {isMenuOpen} {resetList}/>
 
 	{#if options.sorting === "item"}
-		<ItemView bind:data {options} {sluggify} />
+		<ItemView bind:data {options}/>
 	{:else if options.sorting === "order"}
-		<SpeedRunView bind:data {options} {sluggify}/>
+		<SpeedRunView bind:data {options}/>
 	{:else}
-		<LocationView bind:data {options} {sluggify}/>
+		<LocationView bind:data {options}/>
 	{/if}
 </main>
 

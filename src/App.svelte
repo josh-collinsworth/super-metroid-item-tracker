@@ -70,7 +70,7 @@ const toggleMenu = () => {
 }
 
 const adjustMenuButtonPlacement = (scroll) => {
-	isScrolling = scroll > 400 ? true : false
+	isScrolling = scroll > 500 ? true : false
 }
 
 $: orderedItems = items.sort((a, b) => a.order - b.order)
@@ -118,13 +118,12 @@ $: data = {
 }
 </script>
 
+
 <svelte:window bind:scrollY={y} on:scroll={() => {adjustMenuButtonPlacement(y)}}/>
 
 
+<Header {percentage} {toggleMenu} {isMenuOpen} {isScrolling}/>
 <main>
-
-	<Header {percentage} {toggleMenu} {isMenuOpen} {isScrolling}/>
-
 	<Menu bind:options bind:isMenuOpen {toggleMenu} {isMenuOpen} {resetList}/>
 
 	{#if options.sorting === "item"}
@@ -134,7 +133,6 @@ $: data = {
 	{:else}
 		<LocationView bind:data {options} {sluggify}/>
 	{/if}
-
 </main>
 
 <footer>
@@ -145,7 +143,6 @@ $: data = {
 
 <style>
 	main {
-		padding: 0 0 8em;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 		grid-gap: 1rem;
@@ -165,11 +162,5 @@ $: data = {
 
 	footer p:last-of-type {
 		margin-top: 1em;
-	}
-
-	@media (min-width: 36rem) {
-		main {
-			padding: 2em 2em 8em;
-		}
 	}
 </style>

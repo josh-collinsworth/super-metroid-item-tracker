@@ -1,8 +1,6 @@
 <script>
 	export let percentage, toggleMenu, isMenuOpen, isScrolling
 
-	let menubutton
-
 	const handleMenuButttonClick = () => {
 		toggleMenu();
 	}
@@ -17,7 +15,8 @@
 		<h2>Total: {percentage}%</h2>
 	</div>
 
-	<button bind:this={menubutton} class:sticky="{isScrolling}" on:click={toggleMenu} aria-pressed={isMenuOpen} role="button">Options</button>
+	<button class:sticky="{isScrolling}" on:click={toggleMenu} aria-pressed={isMenuOpen} role="button">Options</button>
+	<button id="secondary-menu-button" class:sticky="{isScrolling}" on:click={toggleMenu} aria-hidden="true" role="button">Options</button>
 </header>
 
 
@@ -35,6 +34,7 @@
 		justify-content: space-between;
 		align-items: center;
 		grid-column: 1 / -1;
+		margin-top: 0;
 	}
 
 	header h2 {
@@ -44,20 +44,16 @@
 	button {
 		transition: all .2s ease-in-out;
 	}
-	.sticky {
+
+	#secondary-menu-button {
 		position: fixed;
-		animation: slideMenuButtonDown .3s ease-out forwards;
 		right: 1em;
+		top: -5em;
 		z-index: 10;
+		transition: top .2s ease-in-out;
 	}
 
-	@keyframes slideMenuButtonDown {
-		0% {
-			top: -5em;
-		}
-
-		100% {
-			top: 1em;
-		}
+	#secondary-menu-button.sticky {
+		top: 1em;
 	}
 </style>

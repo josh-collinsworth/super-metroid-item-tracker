@@ -16,6 +16,13 @@ body {
 	box-sizing: border-box;
 	font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 1.125rem;
+	padding: 0 0 8em;
+}
+
+@media (min-width: 36rem) {
+	body {
+		padding: 2em 2em 8em;
+	}
 }
 
 *:focus, input[type="checkbox"]:focus + label, input[type="radio"]:focus + label {
@@ -73,13 +80,13 @@ input[type="range"] {
 	color: #6aa3ae;
 	max-height: 4rem;
 	width: 100%;
+	overflow: hidden;
 }
 
 li, .location {
 	min-height: 1rem;
 	max-height: 6rem;
 	transition: all .4s ease-in-out;
-	overflow: hidden;
 }
 
 .collapsed {

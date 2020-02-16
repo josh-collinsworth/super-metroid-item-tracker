@@ -12,18 +12,16 @@ export let data, options, sluggify
 	<h2>
 		<img class="icon" src="../../../icons/missile.png" alt="">
 		Missiles: {data.collectedMissiles.length}/{data.missiles.length}
-		</h2>
+	</h2>
 	<ul>
 		{#each data.missiles as item, index}
 			<li class:collapsed="{options.hideChecked && item.checked}">
 				<input type="checkbox" id="missile-{index + 1}" bind:checked={item.checked}>
 				<label for="missile-{index + 1}">
 					{item.area}
-					{#if !options.hideLocations}
-						<div class="location" transition:fly="{ Animation.listItem.enterLeave }">
-							{item.location}
-						</div>
-					{/if}
+					<div class="location" class:collapsed="{options.hideLocations}">
+						{item.location}
+					</div>
 				</label>
 			</li>
 		{/each}
@@ -42,11 +40,9 @@ export let data, options, sluggify
 				<input type="checkbox" id="etank-{index + 1}" bind:checked={item.checked}>
 				<label for="etank-{index + 1}">
 					{item.area}
-					{#if !options.hideLocations}
-						<div class="location" transition:fly="{ Animation.listItem.enterLeave }">
-							{item.location}
-						</div>
-					{/if}
+					<div class="location" class:collapsed="{options.hideLocations}">
+						{item.location}
+					</div>
 				</label>
 			</li>
 		{/each}

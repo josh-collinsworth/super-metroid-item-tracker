@@ -126,34 +126,4 @@ export let data, options, sluggify
 	#missiles {
 		grid-row: span 3;
 	}
-
-	label {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-	}
-
-	.icon {
-		transition: opacity .2s;
-		width: 1.6em;
-		margin-right: .5em;
-		opacity: .5;
-		filter: saturate(1);
-		display: inline-block;
-	}
-
-	label .icon {
-		float: none;
-		width: 1.6em;
-		opacity: .5;
-	}
-
-	input:checked + label .icon {
-		opacity: 1;
-		filter: saturate(1);
-	}
-
-	.location {
-		width: 100%;
-	}
 </style>

@@ -213,7 +213,7 @@ ol.category {
 	flex-wrap: wrap;
 }
 
-.icon {
+li .icon {
 	transition: opacity .2s;
 	width: 1.6em;
 	margin-right: .5em;

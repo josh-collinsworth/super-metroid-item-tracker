@@ -1,8 +1,8 @@
-*Psst — looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# Super Metroid Item Tracker ("Smitty")
+
+This is a Svelte project; default Svelte README below. The actual app is an item checklist for the SNES game _Super Metroid_, with several view and sorting options.
 
 ---
-
-# svelte app
 
 This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
 

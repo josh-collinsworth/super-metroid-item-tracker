@@ -221,17 +221,15 @@ ol.category {
 }
 
 li .icon {
-	transition: opacity .2s;
+	transition: filter .2s;
 	width: 1.6em;
 	margin-right: .5em;
-	opacity: .5;
-	filter: saturate(1);
+	filter: saturate(0) opacity(.4);
 	display: inline-block;
 }
 
 input:checked + label .icon {
-	opacity: 1;
-	filter: saturate(1);
+	filter: saturate(1) opacity(1);
 }
 
 @media (min-width: 36rem) {

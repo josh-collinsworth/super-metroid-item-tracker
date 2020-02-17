@@ -5,6 +5,11 @@ export const sluggify = (str) => {
 
 export const camelCaseify = (str) => {
 	if (!str) return ''
-	str = str.replace(/[-_\s.]+(.)?/g, (_, c) => c ? c.toUpperCase() : '');
-	return str.substr(0, 1).toLowerCase() + str.substr(1);
+	str = str.replace(/[-_\s.]+(.)?/g, (_, c) => c ? c.toUpperCase() : '')
+	return str.substr(0, 1).toLowerCase() + str.substr(1)
+}
+
+export const capitalize = (str) => {
+	if (!str) return ''
+	return str.replace(/./, m => m.toUpperCase())
 }

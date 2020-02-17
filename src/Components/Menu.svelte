@@ -12,15 +12,15 @@
 				<legend>View by:</legend>
 				<div>
 					<input bind:group={options.sorting} value={'order'} type="radio" id="byOrder" />
-					<label for="byOrder" on:click={toggleMenu}>Speed run order</label>
+					<label for="byOrder">Speed run order</label>
 				</div>
 				<div>
 					<input bind:group={options.sorting} value={'item'} type="radio" id="byType" />
-					<label for="byType" on:click={toggleMenu}>Item type</label>
+					<label for="byType">Item type</label>
 				</div>
 				<div>
 					<input bind:group={options.sorting} value={'location'} type="radio" id="byLocation" />
-					<label for="byLocation" on:click={toggleMenu}>Area</label>
+					<label for="byLocation">Area</label>
 				</div>
 			</fieldset>
 

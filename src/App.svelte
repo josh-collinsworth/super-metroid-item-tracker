@@ -90,7 +90,11 @@ $: collectedSuperMissiles = superMissiles.filter(item => item.checked)
 $: collectedPowerBombs = powerBombs.filter(item => item.checked)
 $: collectedPowerUps = powerUps.filter(item => item.checked)
 
-$: thing = options;
+$: sorting = options.sorting
+
+$: sorting, setTimeout(() => { isMenuOpen = false }, 200)
+
+$: thing = options
 
 $: data = {
 	orderedItems,
@@ -119,7 +123,7 @@ $: data = {
 
 <Header {percentage} {toggleMenu} {isMenuOpen} {isScrolling}/>
 <main>
-	<Menu bind:options bind:isMenuOpen {toggleMenu} {isMenuOpen} {resetList}/>
+	<Menu bind:options bind:isMenuOpen {isMenuOpen} {resetList} {toggleMenu}/>
 
 	{#if options.sorting === "item"}
 		<ItemView bind:data {options}/>

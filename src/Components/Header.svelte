@@ -1,9 +1,5 @@
 <script>
 	export let percentage, toggleMenu, isMenuOpen, isScrolling
-
-	const handleMenuButttonClick = () => {
-		toggleMenu();
-	}
 </script>
 
 

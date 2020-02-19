@@ -154,19 +154,19 @@ module.exports = {
 			name: `Missile`,
 			unique: false,
 			area: `Norfair (Upper)`,
-			location: `Lava tide (bottom right of tall Grappling Beam shaft)`,
+			location: `"Lava tide" (bottom right of tall Grappling Beam shaft)`,
 			order: 26
 		}, {
 			name: `Missile`,
 			unique: false,
 			area: `Norfair (Upper)`,
-			location: `Next to green gate`,
+			location: `Next to the green gate on the way out of Norfair upper`,
 			order: 27
 		}, {
 			name: `Missile`,
 			unique: false,
 			area: `Brinstar`,
-			location: `Hidden behind KPDR any% Power Bomb`,
+			location: `Behind a power bomb near the elevator to the Crateria landing site`,
 			order: 28
 		}, {
 			name: `Power Bomb`,
@@ -184,7 +184,7 @@ module.exports = {
 			name: `Missile`,
 			unique: false,
 			area: `Crateria`,
-			location: `"Moat" (pedestal right of landing site)`,
+			location: `"Moat" (pedestal to the right of landing site)`,
 			order: 31
 		}, {
 			name: `Missile`,

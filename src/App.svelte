@@ -122,9 +122,8 @@ $: data = {
 
 
 <Header {percentage} {toggleMenu} {isMenuOpen} {isScrolling}/>
+<Menu bind:options bind:isMenuOpen {isMenuOpen} {resetList} {toggleMenu}/>
 <main>
-	<Menu bind:options bind:isMenuOpen {isMenuOpen} {resetList} {toggleMenu}/>
-
 	{#if options.sorting === "item"}
 		<ItemView bind:data {options}/>
 	{:else if options.sorting === "order"}

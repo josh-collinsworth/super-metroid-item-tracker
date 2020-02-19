@@ -1,3 +1,8 @@
+:root {
+	--transition: cubic-bezier(0.4, 0.0, 0.2, 1.0);
+	--blue: rgb(0,100,200);
+}
+
 html, body {
 	position: relative;
 	width: 100%;
@@ -26,12 +31,12 @@ body {
 }
 
 *:focus, input[type="checkbox"]:focus + label, input[type="radio"]:focus + label {
-	outline: 1px solid rgb(0,100,200);
+	outline: 1px solid var(--blue);
 	outline-offset: 3px;
 }
 
 a {
-	color: rgb(0,100,200);
+	color: var(--blue);
 	text-decoration: none;
 }
 
@@ -86,7 +91,7 @@ input[type="range"] {
 li, .location {
 	min-height: 1rem;
 	max-height: 6rem;
-	transition: all .4s ease-in-out;
+	transition: all .4s var(--transition);
 }
 
 .collapsed {
@@ -140,6 +145,7 @@ hr {
 
 label {
 	width: 100%;
+	position: relative;
 }
 
 input[type="checkbox"], input[type="radio"] {
@@ -150,14 +156,26 @@ input[type="checkbox"], input[type="radio"] {
 	opacity: 0;
 }
 
-input[type="checkbox"] + label:before {
-	content: '⬜';
-	margin-right: .25em;
-	font-size: 1.25em;
+main input[type="checkbox"] + label:before {
+	transition: all .2s var(--transition);
+	top: .9em;
+	opacity: 0;
+	display: inline-flex;
+	content: '';
+	margin-left: .5em;
+	width: .4em;
+	height: .8em;
+	position: absolute;
+	z-index: 2;
+	transform: rotate(45deg);
+	border-bottom: 3px solid;
+	border-right: 3px solid;
+	left: -.1em;
 }
 
-input[type="checkbox"]:checked + label:before {
-	content: '✅';
+main input[type="checkbox"]:checked + label:before {
+	top: .6em;
+	opacity: 1;
 }
 
 input[type="radio"] + label:before {
@@ -223,7 +241,7 @@ ol.category {
 
 li .icon {
 	transition: filter .2s;
-	width: 1.6em;
+	width: 1.5rem;
 	margin-right: .5em;
 	filter: saturate(0) opacity(.4);
 	display: inline-block;

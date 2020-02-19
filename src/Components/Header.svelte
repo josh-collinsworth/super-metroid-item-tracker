@@ -12,7 +12,7 @@
 	</div>
 
 	<button class:sticky="{isScrolling}" on:click={toggleMenu} aria-pressed={isMenuOpen} role="button">Options</button>
-	<button id="secondary-menu-button" class:sticky="{isScrolling}" on:click={toggleMenu} aria-hidden="true" role="button">Options</button>
+	<button id="secondary-menu-button" class:sticky="{isScrolling}" on:click={toggleMenu} aria-hidden="true" tabindex={isScrolling ? 1 : -1} role="button">Options</button>
 </header>
 
 

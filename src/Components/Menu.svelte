@@ -51,6 +51,15 @@
 		font-weight: bold;
 	}
 
+	input[type="checkbox"] + label:before {
+		content: '⬜';
+		margin-right: .25em;
+	}
+
+	input[type="checkbox"]:checked + label:before {
+		content: '✅';
+	}
+
 	#menu {
 		position: fixed;
 		top: 0;

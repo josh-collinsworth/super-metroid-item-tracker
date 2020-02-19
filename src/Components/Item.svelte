@@ -1,6 +1,6 @@
 <script>
 	import { sluggify } from '../helpers.js'
-	export let item, options, index
+	export let item, options
 </script>
 
 
@@ -11,7 +11,6 @@
 			<img class="icon" src={`../../icons/${sluggify(item.name)}.png`} alt="">
 		{/if}
 		<strong>
-			{options.sorting === "order" ? `${index + 1}. ` : ''}
 			{item.name}
 		</strong>
 		<div class="location" class:collapsed="{options.hideLocations}">

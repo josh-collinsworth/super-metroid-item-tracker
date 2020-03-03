@@ -340,7 +340,7 @@ module.exports = {
 			name: `Missile`,
 			unique: false,
 			area: `Maridia`,
-			location: `"Main Street" (Speed Booster blocks in Maridia room just above the glass pipe)`,
+			location: `"Main Street" (Speed Booster blocks in tall Maridia room just above the glass pipe)`,
 			order: 57
 		}, {
 			name: `Missile`,
@@ -364,7 +364,7 @@ module.exports = {
 			name: `Missile`,
 			unique: false,
 			area: `Maridia`,
-			location: `Hidden in right side of the "turtle room" in Maridia`,
+			location: `Hidden behind a fake sand wall on the way to the two Choot sand pit pickups.`,
 			order: 61
 		}, {
 			name: `Super Missile`,

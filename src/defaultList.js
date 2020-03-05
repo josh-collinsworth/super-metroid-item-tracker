@@ -22,7 +22,7 @@ module.exports = {
 			name: `Energy Tank`,
 			unique: false,
 			area: `Crateria`,
-			location: `First tank, a few rooms left of the landing site`,
+			location: `First tank, downhill room between landing site and Brinstar elevator`,
 			order: 4
 		}, {
 			name: `Super Missile`,
